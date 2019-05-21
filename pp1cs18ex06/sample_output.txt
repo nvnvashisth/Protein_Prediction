@@ -1,0 +1,75 @@
+Sample output for task 6 code (please notice, that we run our test with a different dataset):
+
+First 10 residues of self.all_residues for half_window_size=3
+[['V', 'M', 'Q', 'L', 'L', 'A', 'A', '2'],
+ ['V', 'M', 'Q', 'L', 'L', 'A', 'A', '2'],
+ ['L', 'Q', 'L', 'V', 'A', 'A', 'K', '2'],
+ ['V', 'M', 'Q', 'L', 'L', 'A', 'A', '2'],
+ ['L', 'Q', 'L', 'V', 'A', 'A', 'K', '2'], 
+ ['A', 'L', 'V', 'L', 'A', 'K', 'Y', '2'], 
+ ['V', 'M', 'Q', 'L', 'L', 'A', 'A', '2'], 
+ ['L', 'Q', 'L', 'V', 'A', 'A', 'K', '2'], 
+ ['A', 'L', 'V', 'L', 'A', 'K', 'Y', '2'], 
+ ['A', 'V', 'L', 'A', 'K', 'Y', 'I', '2']]
+ 
+First 5 lines  (df.head()) for the partial binarized version of the internal DataFrame. 
+All attributes except "state" have been binarized and state has been reencoded.
+ 
+  state  center_A  center_C  center_D  center_E  center_F  center_G  center_H  \
+0     2         0         0         0         0         0         0         0   
+1     2         0         0         0         0         0         0         0   
+2     2         0         0         0         0         0         0         0   
+3     2         0         0         0         0         0         0         0   
+4     2         0         0         0         0         0         0         0   
+
+   center_I  center_K ...   3_M  3_N  3_P  3_Q  3_R  3_S  3_T  3_V  3_W  3_Y  
+0         0         0 ...     0    0    0    0    0    0    0    0    0    0  
+1         0         0 ...     0    0    0    0    0    0    0    0    0    0  
+2         0         0 ...     0    0    0    0    0    0    0    0    0    0  
+3         0         0 ...     0    0    0    0    0    0    0    0    0    0  
+4         0         0 ...     0    0    0    0    0    0    0    0    0    0  
+
+Last 5 lines  (df.tail()) for the partial binarized version of the internal DataFrame. 
+All attributes except "state" have been binarized and state has been reencoded.
+
+[5 rows x 141 columns]
+       state  center_A  center_C  center_D  center_E  center_F  center_G  \
+402786     H         0         0         0         0         0         0   
+402787     H         0         0         0         0         0         0   
+402788     H         0         0         0         0         0         0   
+402789     2         0         0         0         0         0         0   
+402790     2         0         0         0         0         0         0   
+
+        center_H  center_I  center_K ...   3_M  3_N  3_P  3_Q  3_R  3_S  3_T  \
+402786         0         0         0 ...     0    0    0    0    0    0    0   
+402787         0         0         0 ...     0    0    0    0    1    0    0   
+402788         0         1         0 ...     0    0    0    0    0    0    0   
+402789         0         0         1 ...     0    0    1    0    0    0    0   
+402790         0         0         0 ...     0    1    0    0    0    0    0   
+
+        3_V  3_W  3_Y  
+402786    0    0    0  
+402787    0    0    0  
+402788    0    1    0  
+402789    0    0    0  
+402790    0    0    0  
+
+
+The confusion matrix:
+[5 rows x 141 columns]
+[[    3    22     3    48     0]
+ [    0 28248  1803  6455     0]
+ [    0  8289  4327  4157     0]
+ [    0  4132   947 40023     1]
+ [    0   113     0   221   266]]
+ 
+The classification report:
+             precision    recall  f1-score   support
+
+          0       1.00      0.04      0.08        76
+          1       0.69      0.77      0.73     36506
+          2       0.61      0.26      0.36     16773
+          3       0.79      0.89      0.83     45103
+          4       1.00      0.44      0.61       600
+
+avg / total       0.72      0.74      0.71     99058
